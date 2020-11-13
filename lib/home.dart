@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ungsoutheast/register.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -17,7 +18,7 @@ class _HomeState extends State<Home> {
             radius: 0.3,
             colors: [Colors.white, Colors.lime],
           ),
-        ),
+        ), //ทำสีไฟฉาย
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -27,16 +28,24 @@ class _HomeState extends State<Home> {
               buildTextFieldUser(),
               buildTextFieldPassword(),
               buildButtonLogin(),
-              TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'New Register',
-                  ))
+              buildTextButton()
             ],
           ),
         ),
       ),
     );
+  }
+
+  TextButton buildTextButton() {
+    return TextButton(
+        onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Register(),
+            )),
+        child: Text(
+          'New Register',
+        ));
   }
 
   Container buildButtonLogin() {
